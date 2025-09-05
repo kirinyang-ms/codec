@@ -1,0 +1,18 @@
+{
+    "version": "1.0.0",
+    "devices": [
+        {
+            "id": "kr101",
+            "name": "KR101",
+            "description": "Wireless Thermostat",
+            "catalog": "kr",
+            "sn": "6714",
+            "pn": ["000"],
+            "deveui": "24e124714",
+            "device_profile": ["ClassA-OTAA"],
+            "codec": "vendors/kirin/kr101/wt101-codec.json",
+            "decoder_script": "vendors/kirin/kr101/wt101-decoder.js",
+            "encoder_script": "vendors/kirin/kr101/wt101-encoder.js"
+        }
+    ]
+}

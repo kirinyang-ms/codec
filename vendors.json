@@ -8,6 +8,15 @@
             "description": "Make Sensing Matter",
             "oui": "24e124",
             "devices": "vendors/milesight-iot/devices.json"
+        },
+        {
+            "id": "kirin",
+            "name": "KRIOT",
+            "logo": "vendors/milesight-iot/logo.png",
+            "website": "https://www.milesight-iot.com",
+            "description": "Make Sensing Matter",
+            "oui": "24e124",
+            "devices": "vendors/kirin/devices.json"
         }
     ]
 }
