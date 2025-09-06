@@ -407,9 +407,7 @@
             "unit": "",
             "access_mode": "RW",
             "data_type": "OBJECT",
-            "value_type": "STRUCT",
-            "bacnet_unit_type_id": 95,
-            "bacnet_unit_type": "UNITS_NO_UNITS"
+            "value_type": "STRUCT"
         },
         {
             "id": "temperature_calibration_settings.enable",
