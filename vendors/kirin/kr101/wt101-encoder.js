@@ -64,7 +64,7 @@ function milesightDeviceEncode(payload) {
         encoded = encoded.concat(setTemperatureControlMode(payload.temperature_control.mode));
     }
     if ("target_temperature" in payload) {
-        encoded = encoded.concat(setTargetTemperature(payload.target_temperature, payload.temperature_tolerance));
+        encoded = encoded.concat(setTargetTemperature(payload.target_temperature));
     }
     if ("target_temperature_range" in payload) {
         encoded = encoded.concat(setTargetTemperatureRange(payload.target_temperature_range));
@@ -326,13 +326,16 @@ function setTemperatureControlMode(mode) {
 
 /**
  * temperature target configuration
- * @param {number} target_temperature uint: Celsius
- * @param {number} temperature_tolerance uint: Celsius
- * @example { "target_temperature": 10, "temperature_tolerance": 0.1 }
- * @example { "target_temperature": 28, "temperature_tolerance": 5 }
+ * @param {object} target_temperature
+ * @param {number} target_temperature.temperature uint: Celsius
+ * @param {number} target_temperature.temperature_tolerance uint: Celsius
+ * @example { "target_temperature": { "target_temperature.temperature": 10, "target_temperature.temperature_tolerance": 0.1 } }
+ * @example { "target_temperature": { 28, "target_temperature.temperature_tolerance": 5} }
  */
-function setTargetTemperature(target_temperature, temperature_tolerance) {
-    if (typeof target_temperature !== "number") {
+function setTargetTemperature(target_temperature) {
+    var temperature = target_temperature.temperature;
+    var temperature_tolerance = target_temperature.temperature_tolerance
+    if (typeof temperature !== "number") {
         throw new Error("target_temperature must be a number");
     }
     if (typeof temperature_tolerance !== "number") {
@@ -342,7 +345,7 @@ function setTargetTemperature(target_temperature, temperature_tolerance) {
     var buffer = new Buffer(4);
     buffer.writeUInt8(0xff);
     buffer.writeUInt8(0xb1);
-    buffer.writeInt8(target_temperature);
+    buffer.writeInt8(temperature);
     buffer.writeUInt16LE(temperature_tolerance * 10);
     return buffer.toBytes();
 }

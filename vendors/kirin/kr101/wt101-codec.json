@@ -128,6 +128,15 @@
         {
             "id": "target_temperature",
             "name": "Target Temperature",
+            "value": "",
+            "unit": "",
+            "access_mode": "RW",
+            "data_type": "OBJECT",
+            "value_type": "STRUCT"
+        },
+        {
+            "id": "target_temperature.temperature",
+            "name": "Target Temperature temperature setting",
             "value": "30",
             "unit": "°C",
             "access_mode": "RW",
@@ -136,7 +145,7 @@
             "bacnet_type": "analog_value_object",
             "bacnet_unit_type_id": 62,
             "bacnet_unit_type": "UNITS_DEGREES_CELSIUS",
-            "reference": ["temperature_tolerance"]
+            "reference": ["target_temperature.temperature_tolerance"]
         },
         {
             "id": "valve_opening",
@@ -472,7 +481,7 @@
             "bacnet_unit_type": "UNITS_NO_UNITS"
         },
         {
-            "id": "temperature_tolerance",
+            "id": "target_temperature.temperature_tolerance",
             "name": "Temperature Tolerance",
             "value": "0",
             "unit": "°C",
@@ -482,7 +491,7 @@
             "bacnet_type": "analog_value_object",
             "bacnet_unit_type_id": 62,
             "bacnet_unit_type": "UNITS_DEGREES_CELSIUS",
-            "reference": ["target_temperature"]
+            "reference": ["target_temperature.temperature"]
         },
         {
             "id": "target_temperature_range.min",
